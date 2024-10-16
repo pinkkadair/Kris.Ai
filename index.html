@@ -3,93 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kris.Ai</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Kris.Ai Chatbot</title>
   <style>
     body, html {
       height: 100%;
       margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #121212; /* Dark background */
     }
 
+    /* Fullscreen chat container with dark background */
     .chat-container {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
       height: 100vh;
-      background-color: #f1f1f1;
+      background-color: #121212; /* Dark background for the entire screen */
     }
 
-    .chat-box {
-      flex: 1;
-      padding: 10px;
-      overflow-y: scroll;
-      background-color: #fff;
-    }
-
-    .input-container {
-      display: flex;
-      padding: 10px;
-      background-color: #333;
-    }
-
-    input {
-      flex: 1;
-      padding: 10px;
-      font-size: 16px;
+    /* Chat frame that contains the iframe */
+    .chat-frame {
+      width: 100%;
+      max-width: 400px; /* Restrict the width to look like a mobile app */
+      height: 100%;
       border: none;
-      border-radius: 5px;
+      background-color: #121212; /* Dark background for the frame */
+      overflow: hidden; /* Ensure no scrolling outside the frame */
     }
 
-    button {
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      margin-left: 10px;
-      background-color: #4CAF50;
-      color: white;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none; /* Remove any border from the iframe */
     }
   </style>
 </head>
 <body>
   <div class="chat-container">
-    <div id="chatBox" class="chat-box"></div>
-    <div class="input-container">
-      <input type="text" id="userInput" placeholder="Type your message..." />
-      <button onclick="sendMessage()">Send</button>
+    <div class="chat-frame">
+      <!-- Embed the Chatbase iframe for Kris.Ai chatbot -->
+      <iframe src="https://www.chatbase.co/chatbot-iframe/jCUoeTiY49qti8pwHi9Zk"></iframe>
     </div>
   </div>
-
-  <script>
-    function appendMessage(message, sender) {
-      const chatBox = document.getElementById('chatBox');
-      const messageElement = document.createElement('div');
-      messageElement.textContent = sender + ': ' + message;
-      chatBox.appendChild(messageElement);
-      chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    function sendMessage() {
-      const userInput = document.getElementById('userInput');
-      const message = userInput.value;
-      appendMessage(message, 'You');
-
-      fetch('https://www.chatbase.co/chatbot-iframe/jCUoeTiY49qti8pwHi9Zk', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: message,
-        }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        appendMessage(data.response, 'Bot');
-      });
-
-      userInput.value = '';
-    }
-  <script src="script.js"></script>
 </body>
 </html>
