@@ -1,25 +1,26 @@
+/* Global Styles */
 body, html {
-  height: 100%;
-  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #121212; /* Dark background */
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
 }
 
-/* Fullscreen chat container with dark background */
+/* Fullscreen Chat Container */
 .chat-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Ensure the chat container fills the screen height */
   background-color: #121212;
 }
 
-/* Chat frame for the iframe */
+/* Chat Frame for the Iframe */
 .chat-frame {
   width: 100%;
   max-width: 400px; /* Keep the iframe looking like a mobile app */
-  height: 100%;
+  height: 100%; /* Set height to fill the container */
   background-color: #121212;
   overflow: hidden;
 }
@@ -30,22 +31,95 @@ iframe {
   border: none; /* Make the iframe borderless */
 }
 
-/* Styling for the Community Dashboard */
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f4f4f9;
+/* Popup Styling */
+.popup, .milestone {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Darker background for better contrast */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-.card {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+.popup-content, .milestone-content {
+  background: white;
+  padding: 40px;
+  border-radius: 16px; /* More rounded corners */
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  position: relative;
+}
+
+/* Icon Styling */
+.info-icon {
+  font-size: 48px;
+  color: #4a90e2; /* Updated color for a modern look */
   margin-bottom: 20px;
 }
 
+/* Button Styling */
+.button {
+  background-color: #ff4081;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px; /* Pill-shaped button */
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e53981;
+  transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* List Styling */
+.popup-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.popup-content ul li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Dashboard and Feature Section */
+.container {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  width: 30%;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar */
 .progress {
   height: 10px;
   background-color: #ddd;
@@ -53,13 +127,33 @@ iframe {
   overflow: hidden;
 }
 
+/* Progress Bar */
 .progress-bar {
-  width: 1%;
-  height: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+  height: 10px;
+}
+.progress-bar-fill {
   background-color: #ff4081;
+  width: 0;
+  height: 100%;
   transition: width 0.5s ease;
 }
+/* Footer */
+.footer {
+  background-color: #121212;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
 
+.footer h3 {
+  margin-bottom: 10px;
+}
+
+/* Icon Styling */
 .icon {
   display: inline-block;
   margin-right: 10px;
@@ -72,45 +166,6 @@ iframe {
   text-align: center;
   line-height: 24px;
   font-size: 14px;
-}
-
-.button {
-  background-color: #ff4081;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-transform: uppercase;
-  margin-top: 20px;
-}
-
-.button:hover {
-  background-color: #e53981;
-}
-
-.popup,
-.milestone {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.popup-content,
-.milestone-content {
-  background-color: white;
-  padding: 30px;
-  border-radius: 8px;
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
 }
 
 
