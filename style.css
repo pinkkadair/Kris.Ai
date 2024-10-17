@@ -57,7 +57,7 @@ iframe {
 }
 
 /* Icon Styling */
-.info-icon {
+.info-icon, .heart-icon {
   font-size: 48px;
   color: #4a90e2; /* Updated color for a modern look */
   margin-bottom: 20px;
@@ -117,6 +117,7 @@ iframe {
   padding: 20px;
   width: 30%;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 /* Progress Bar */
@@ -127,7 +128,6 @@ iframe {
   overflow: hidden;
 }
 
-/* Progress Bar */
 .progress-bar {
   background-color: #ddd;
   border-radius: 5px;
@@ -135,12 +135,14 @@ iframe {
   margin: 10px 0;
   height: 10px;
 }
+
 .progress-bar-fill {
   background-color: #ff4081;
   width: 0;
   height: 100%;
   transition: width 0.5s ease;
 }
+
 /* Footer */
 .footer {
   background-color: #121212;
@@ -168,4 +170,23 @@ iframe {
   font-size: 14px;
 }
 
+/* Additional Styling for Responsiveness */
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+  }
+  
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .popup-content, .milestone-content {
+    padding: 30px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+  }
+}
 
