@@ -1,57 +1,60 @@
-const communityStats = {
-  totalUsers: 50,
-  activeToday: 124,
-  knowledgeBase: 248,
-  successStories: 25,
-  nextMilestone: 500,
-  lastMilestone: 100
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const growthPopup = document.getElementById('growthPopup');
+  const guidePopup = document.getElementById('guidePopup');
+  const continueButton = document.getElementById('continueButton');
+  const closeGuideButton = document.getElementById('closeGuide');
 
-// Set initial stats on page load
-document.getElementById("totalUsers").textContent = communityStats.totalUsers.toLocaleString();
-document.getElementById("activeToday").textContent = communityStats.activeToday.toLocaleString();
-document.getElementById("knowledgeBase").textContent = communityStats.knowledgeBase.toLocaleString();
-document.getElementById("successStories").textContent = communityStats.successStories.toLocaleString();
-document.getElementById("popupTotalUsers").textContent = communityStats.totalUsers.toLocaleString();
-document.getElementById("lastMilestone").textContent = communityStats.lastMilestone.toLocaleString();
-
-// Progress bar animation starting from 1
-let progress = 1;
-const progressBar = document.getElementById("progressBar");
-const progressPercentage = document.getElementById("progressPercentage");
-const updateProgress = () => {
-  progress += 1;
-  if (progress <= 85) {
-    progressBar.style.width = progress + "%";
-    progressPercentage.textContent = progress + "%";
+  // Show the initial growth popup
+  if (growthPopup) {
+    growthPopup.style.display = 'flex';
   }
-};
-setInterval(updateProgress, 50);
 
-// Show the growth popup
-function showPopup() {
-  document.getElementById("growthPopup").style.display = "flex";
-}
-
-// Close the popup
-function closePopup() {
-  document.getElementById("growthPopup").style.display = "none";
-}
-
-// Show the milestone popup
-function showMilestone() {
-  document.getElementById("milestonePopup").style.display = "flex";
-}
-
-// Close the milestone popup
-function closeMilestone() {
-  document.getElementById("milestonePopup").style.display = "none";
-}
-
-// Trigger the milestone popup when progress reaches 85%
-setTimeout(() => {
-  if (progress >= 85) {
-    showMilestone();
+  // Continue button to close growth popup and show the guide popup
+  if (continueButton) {
+    continueButton.addEventListener('click', () => {
+      if (growthPopup) {
+        growthPopup.style.display = 'none';
+      }
+      if (guidePopup) {
+        guidePopup.style.display = 'flex';
+      }
+    });
   }
-}, 5000);
+
+  // Close guide popup
+  if (closeGuideButton) {
+    closeGuideButton.addEventListener('click', () => {
+      if (guidePopup) {
+        guidePopup.style.display = 'none';
+      }
+    });
+  }
+});
+
+// Show the guide popup
+function showGuide() {
+  const guidePopup = document.getElementById('guidePopup');
+  if (guidePopup) {
+    guidePopup.style.display = 'flex';
+  }
+}
+// Function to animate the progress bars
+document.addEventListener('DOMContentLoaded', () => {
+  const progressBars = document.querySelectorAll('.progress-bar-fill');
+  progressBars.forEach((bar) => {
+    const width = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 200);
+  });
+});
+
+// Close the guide popup
+function closeGuide() {
+  const guidePopup = document.getElementById('guidePopup');
+  if (guidePopup) {
+    guidePopup.style.display = 'none';
+  }
+}
 
