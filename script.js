@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const guidePopup = document.getElementById('guidePopup');
   const continueButton = document.getElementById('continueButton');
   const closeGuideButton = document.getElementById('closeGuide');
+  const progressBars = document.querySelectorAll('.progress-bar-fill');
 
   // Show the initial growth popup
   if (growthPopup) {
@@ -29,18 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-});
 
-// Show the guide popup
-function showGuide() {
-  const guidePopup = document.getElementById('guidePopup');
-  if (guidePopup) {
-    guidePopup.style.display = 'flex';
-  }
-}
-// Function to animate the progress bars
-document.addEventListener('DOMContentLoaded', () => {
-  const progressBars = document.querySelectorAll('.progress-bar-fill');
+  // Animate the progress bars
   progressBars.forEach((bar) => {
     const width = bar.style.width;
     bar.style.width = '0%';
@@ -50,7 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Close the guide popup
+// Function to show the guide popup
+function showGuide() {
+  const guidePopup = document.getElementById('guidePopup');
+  if (guidePopup) {
+    guidePopup.style.display = 'flex';
+  }
+}
+
+// Function to close the guide popup
 function closeGuide() {
   const guidePopup = document.getElementById('guidePopup');
   if (guidePopup) {
